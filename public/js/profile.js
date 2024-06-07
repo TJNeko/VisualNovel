@@ -1,47 +1,42 @@
-const newFormHandler = async (event) => {
-  event.preventDefault();
 
-  const name = document.querySelector('#project-name').value.trim();
-  const needed_funding = document.querySelector('#project-funding').value.trim();
-  const description = document.querySelector('#project-desc').value.trim();
 
-  if (name && needed_funding && description) {
-    const response = await fetch(`/api/projects`, {
-      method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+// Function to start the game
+function initGame() {
 
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to create project');
-    }
+  displayStory("Welcome to the Visual Novel Game!");
+  
+  getPlayerName();
+}
+
+// Function for the next button 
+function handleNextButtonClick() {
+ 
+  const nextStoryPart = getNextStoryPart();
+  displayStory(nextStoryPart);
+}
+
+// Function to display the story text on screen 
+function displayStory(storyText) {
+ 
+  const storyContainer = document.getElementById('storyContainer');
+  storyContainer.textContent = storyText;
+}
+
+// Function to prompt the player to enter name
+function getPlayerName() {
+  const playerName = prompt("Please enter your name:");
+ 
+  if (playerName) {
+   
+      window.playerName = playerName;
   }
-};
+}
 
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
+// Function to fetch the next part of the story (can be from predefined list or object)
+function getNextStoryPart() {
+  
+  // return "..";
+}
 
-    const response = await fetch(`/api/projects/${id}`, {
-      method: 'DELETE',
-    });
-
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to delete project');
-    }
-  }
-};
-
-document
-  .querySelector('.new-project-form')
-  .addEventListener('submit', newFormHandler);
-
-document
-  .querySelector('.project-list')
-  .addEventListener('click', delButtonHandler);
+// Initialize the game when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', initGame);
