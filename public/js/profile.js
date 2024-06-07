@@ -1,4 +1,8 @@
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> c7cc71ec4b5f8f54943733175156ddee601821e3
 // Function to start the game
 function initGame() {
 
@@ -30,6 +34,8 @@ function getPlayerName() {
       window.playerName = playerName;
   }
 }
+<<<<<<< HEAD
+=======
 
 // const newFormHandler = async (event) => {
 //   event.preventDefault();
@@ -71,6 +77,7 @@ function getPlayerName() {
 //   }
 // };
 
+>>>>>>> c7cc71ec4b5f8f54943733175156ddee601821e3
 
 // Function to fetch the next part of the story (can be from predefined list or object)
 function getNextStoryPart() {
@@ -81,7 +88,10 @@ function getNextStoryPart() {
 
 // Initialize the game when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', initGame);
+<<<<<<< HEAD
+=======
 
 document
   .querySelector('.story-list')
   .addEventListener('click', delButtonHandler);
+>>>>>>> c7cc71ec4b5f8f54943733175156ddee601821e3
