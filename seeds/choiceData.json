@@ -1,0 +1,23 @@
+[
+  {
+    "story_id":4,
+    "choice":[
+      "LEFT",
+      "RIGHT"] 
+  },
+  {
+    "story_id":12,
+    "choice":["DRINK THE TEA",
+    "DUMP THE TEA OUT ONTO THE FLOOR"]
+  },
+  {
+    "story_id":18,
+    "choice":["GO TO SLEEP",
+    "STAY AWAKE"]
+  },
+  {
+    "story_id":21,
+    "choice":["HIDE UNDER THE BED",
+    "TRY TO CLIMB THROUGH THE WINDOW"]
+  }
+]
