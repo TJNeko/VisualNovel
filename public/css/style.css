@@ -42,3 +42,23 @@ body {
 @keyframes type{ 
   from { width: 0; } 
 } 
+
+@font-face {
+  font-family: Creepster;
+  src: url('/fonts/Creepster-Regular.ttf') format('truetype'); 
+}
+
+.creepster{
+  font-family: Creepster;
+  text-align: center;
+  font-size: 150px;
+  margin: auto;
+  width: 50%;
+}
+
+.fade-in-title { animation: fadeIn 20s; }
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

@@ -31,7 +31,7 @@ Dr. Connors looks at you with disbelief as you pour the tea he just gave you ont
 Dr. Connors: What in the hell do you think you’re doing? I bring you into my house and offer you tea and a place to sleep and you disrespect my home like this?
 Dr. Connors opens his long gray coat revealing a pistol, as he draws the gun you try to get up and run but Dr. Connors is too fast on the trigger. You look down and see red from your stomach stain your white shirt, you lay on the ground gasping for air. As your vision slowly fades away you see the smiling face of Dr. Connors staring down at you.
 DRINK THE TEA CONTINUE
-You  take the tea from Dr. Connors and take a drink, its warm and helps to come you down.
+You take the tea from Dr. Connors and take a drink, its warm and helps to come you down.
 Dr. Connors: Let me show you to the spare room you will be safe there until the morning, then we can get you out of these woods.
 You follow Dr. Connors up to the third floor to a door, he opens it. It is a small cozy room with a bed, you feel really abnormally tired, what will you do?
 GO TO SLEEP
