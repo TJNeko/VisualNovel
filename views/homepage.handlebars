@@ -3,7 +3,11 @@
     <div class="fade-in-title ">
         <h1 class="creepster">Dead End 💀</h1>
     </div>
+    <div align="center">
+    <p><a href="/" id="start-link">Start?</a></p>
+    </div>
   </div> 
+  
     {{!-- <div>
     <p>
       {{stories.0.story}}
@@ -11,4 +15,12 @@
     <p class="one-word-by-one">NOW YOU ARE DEAD...</p>
   </div> --}}
 </div>
+
+    <script>
+        document.getElementById('start-link').addEventListener('click', (e) => {
+          e.preventDefault();
+          window.location.href = '/';
+        });
+        
+    </script>
 

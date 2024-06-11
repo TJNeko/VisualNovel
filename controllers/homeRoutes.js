@@ -4,7 +4,12 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    //if not logged in, login 
+    
+    //else start over the game or continue
+
+
+    // Get all story and JOIN with user data
     const storyData = await Story.findAll({
       include: [
         {
