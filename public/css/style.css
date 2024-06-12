@@ -1,5 +1,6 @@
 header, .project:not(:last-child) {
   border-bottom: 5px solid #ccc;
+  background: #000;
 }
 
 
