@@ -62,3 +62,16 @@ body {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#back-button {
+  order: 1;
+}
+
+#next-button {
+  order: 2;
+}
