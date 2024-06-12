@@ -1,9 +1,13 @@
 header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 5px solid #ccc;
+  background: #000;
 }
 
+
 body {
-  background-color: #000000;
+  background-image: url('/images/HD-wallpaper-darkness-in-the-forest-creepy-forest-nature-dark.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   color: #ffffff;
 }
 
@@ -63,6 +67,27 @@ body {
   100% { opacity: 1; }
 }
 
+
+.play-button {
+  display: inline-block;
+  padding: 0; /* Remove padding to prevent extra spacing */
+  border: none; /* Remove border */
+  background: none; /* Remove background */
+}
+
+.play-button img {
+  width: 100px; /* Adjust the width of the image */
+  height: auto; /* Maintain aspect ratio */
+  vertical-align: middle; /* Align image vertically */
+}
+
+
+.play-button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+
 .button-container {
   display: flex;
   justify-content: space-between;
@@ -75,3 +100,4 @@ body {
 #next-button {
   order: 2;
 }
+
