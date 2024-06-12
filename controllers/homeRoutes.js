@@ -70,13 +70,13 @@ router.get('/story', async (req, res) => {
       ],
     });
 
-    const story = storyData.map((s) => { 
+    const stories = storyData.map((s) => { 
       return s.get({plain: true });
     });
 
     res.render('story', {
 
-     story,
+     stories,
       logged_in: req.session.logged_in
     });
   } catch (err) {
