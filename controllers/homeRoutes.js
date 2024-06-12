@@ -64,6 +64,9 @@ router.get('/story', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        // {
+        //   include:Choice
+        // }
       ],
     });
 
@@ -72,7 +75,7 @@ router.get('/story', async (req, res) => {
     });
 
     res.render('story', {
-     // ...story,
+
      story,
       logged_in: req.session.logged_in
     });

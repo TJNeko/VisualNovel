@@ -1,14 +1,15 @@
-{{!-- <div class="text-center">
-  <h2>{{paragraph}}</h2>
 
-  <p>{{story}}</p>
-  <p>
-    <button class="btn btn-primary">DEAD END!</button>
-  </p>
-</div> --}}
+<body>
 
 
-<p>Story now begins.... </p> 
-{{#each story as |s|}}
-{{story}}
-{{/each}}
+  <p>Story now begins.... </p>
+  <div >
+    {{#each story as |s|}}
+     <p class="paragraph"> {{story}}</p>
+    {{/each}}
+  </div> 
+  <script src="/js/storyHandler.js"></script>
+  
+</body>
+
+
