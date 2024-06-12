@@ -67,22 +67,15 @@ body {
   100% { opacity: 1; }
 }
 
-.play-button {
-  display: inline-block;
-  padding: 0; /* Remove padding to prevent extra spacing */
-  border: none; /* Remove border */
-  background: none; /* Remove background */
+.button-container {
+  display: flex;
+  justify-content: space-between;
 }
 
-.play-button img {
-  width: 100px; /* Adjust the width of the image */
-  height: auto; /* Maintain aspect ratio */
-  vertical-align: middle; /* Align image vertically */
+#back-button {
+  order: 1;
 }
 
-
-.play-button:hover {
-  background-color: #fff;
-  color: #000;
+#next-button {
+  order: 2;
 }
-
