@@ -32,21 +32,51 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/story/:id', async (req, res) => {
+// router.get('/story/:id', async (req, res) => {
+//   try {
+//     const storyData = await Story.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//         },
+//       ],
+//     });
+
+//     const story = storyData.get({ plain: true });
+
+//     res.render('story', {
+//       ...story,
+//       logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+
+router.get('/story', async (req, res) => {
   try {
-    const storyData = await Story.findByPk(req.params.id, {
+    
+    const storyData = await Story.findAll({
       include: [
         {
           model: User,
           attributes: ['name'],
         },
+        // {
+        //   include:Choice
+        // }
       ],
     });
 
-    const story = storyData.get({ plain: true });
+    const stories = storyData.map((s) => { 
+      return s.get({plain: true });
+    });
 
     res.render('story', {
-      ...story,
+
+     stories,
       logged_in: req.session.logged_in
     });
   } catch (err) {

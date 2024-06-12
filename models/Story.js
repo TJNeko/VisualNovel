@@ -20,6 +20,12 @@ Story.init(
         model: 'user',
         key: 'id',
       }
+    },
+    has_choice:{
+      type:DataTypes.BOOLEAN,
+    },
+    is_dead:{
+      type:DataTypes.BOOLEAN,
     }
   },
   {
