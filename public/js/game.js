@@ -38,5 +38,8 @@ function getNextStoryPart() {
   // return "..";
 }
 
+
+
+
 // Initialize the game when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', initGame);
