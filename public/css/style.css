@@ -79,3 +79,8 @@ body {
 #next-button {
   order: 2;
 }
+
+.play-button img {
+  width: 100px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
