@@ -1,9 +1,8 @@
 
 <body>
 
-
   <p>Story now begins.... </p>
-  <div >
+  <div class="story-section">
     {{#each stories as |story|}}
      <p class="paragraph" data-choice="{{story.has_choice}}"> {{story.story}}</p>
     {{/each}}
