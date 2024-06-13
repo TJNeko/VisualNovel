@@ -54,7 +54,8 @@ router.get('/', async (req, res) => {
 //fetching this function to storyHandler.js. 
 router.get('/api/story', async (req, res) => {
   try {
-    const storyData = await Story.findAll({
+
+     const storyData = await Story.findAll({
       include: [
         {
           model: User,
@@ -63,10 +64,40 @@ router.get('/api/story', async (req, res) => {
       ],
     });
 
-    const stories = storyData.map(story => story.get({ plain: true }));
+    const stories = storyData.map((story) => story.get({ plain: true }));
+
+    // const choiceData = await Choice.findAll({
+    //   where:{
+    //     story_id : Story.id
+    //   },
+    //   include: [
+    //     {
+    //       model: Story,
+    //       attributes: ['id', 'story', 'user_id', 'has_choice', 'is_dead'], 
+    //     },
+    //   ],
+    // });
     
-    //only first array of story is sent 
-      res.json(stories[2]);
+    // const choices = choiceData.map(choice => choice.get({ plain: true }));
+
+
+    //add logic here 
+    stories.forEach((s) => {
+    if(s.has_choice){
+
+
+      // res.render('story', { 
+      //   stories, 
+      //   choices,
+      //   logged_in: req.session.logged_in 
+      // });
+    }
+    });
+
+      res.render('story', { 
+        story:stories[2], 
+        logged_in: req.session.logged_in 
+      });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -116,7 +147,6 @@ router.get('/story', async (req, res) => {
     });
     res.render('intro', {
        stories:stories,//all stories
- //    story:stories[0],//one object
       logged_in: req.session.logged_in
     });
   } catch (err) {

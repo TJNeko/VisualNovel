@@ -1,4 +1,4 @@
-//let stories 
+
 let currentIndex = 0;
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       const story = await data.json();
     
-      console.log("fetched stories: " + story.story);
-      //displaying first story
+      console.log("fetched story: " + story.story);
+      //displaying first story  (stories[0])
       storySection.innerHTML='';
       const paragraph = document.createElement('p');
       paragraph.className = 'paragraph';
@@ -74,7 +74,5 @@ function handleParagraphClick(event){
     let paragraph = event.currentTarget;
     let story = paragraph.textContent;
     let hasChoice = paragraph.getAttribute('data-choice');
-    console.log(`Paragraph clicked: ${story}`);
-    console.log(`Has choice: ${hasChoice}`);
 }
 

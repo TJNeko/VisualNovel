@@ -19,7 +19,8 @@ function handleNextButtonClick() {
 function displayStory(storyText) {
  
   const storyContainer = document.getElementById('storyContainer');
-  storyContainer.textContent = storyText;
+  if(storyText)
+    storyContainer.textContent = storyText;
 }
 
 // Function to prompt the player to enter name
@@ -40,23 +41,26 @@ function getNextStoryPart() {
 
 const textBox = document.getElementById("user-name"); 
 const button = document.getElementById("name-button");
+const nextButton = document.getElementById("next-button1");
 const div1 = document.getElementById("first-section");
 const div2 = document.getElementById("second-section");
 
+if(textBox){
 textBox.addEventListener("keyup", function (event) { 
 
     // Checking if key pressed is ENTER or not 
     // if the key pressed is ENTER 
     // click listener on button is called 
-    if (event.keyCode == 13) { 
+    if (event.key === 'Enter') { 
         button.click(); 
     } 
-}); 
-// This event is fired when button is clicked 
-button.addEventListener("click", function () { 
-    let str = textBox.value; 
-    console.log(str); 
+}); }
 
+//str is name that user input. Then this user input name is appended to story[1] and send back to intro.handlebars
+button.addEventListener("click", function () { 
+    let str = textBox.value; //user entered name
+
+    //when user entered name field, story[0] will be hidden and story[1] shows
   if (div2.style.display === "none") {
       div1.style.display = "none";
       div2.style.display = "block";
@@ -65,12 +69,15 @@ button.addEventListener("click", function () {
   const secondParagraph = nameSection.textContent + str + "!";
   nameSection.innerHTML = secondParagraph;
 
-  } else {
+  } else {//otherwise story[0] displays
       div1.style.display = "block";
       div2.style.display = "none";
   }
 }); 
 
+nextButton.addEventListener("click",function(){
+  window.location.href = '/api/story';
+});
 
 // Initialize the game when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', initGame);

@@ -19,4 +19,10 @@ module.exports = {
       return `<span for="img" aria-label="gear">⚙️</span>`;
     }
   },
+  sliceFromIndex: function(array, index) {
+    if (!Array.isArray(array) || typeof index !== 'number') {
+      return array;
+    }
+    return array.slice(index);
+  }
 };
