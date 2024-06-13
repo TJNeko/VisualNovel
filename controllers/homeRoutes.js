@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const { Story, User } = require('../models');
+const { Story, User, Choice } = require('../models');
 const withAuth = require('../utils/auth');
 
+//initial loading page
 router.get('/', async (req, res) => {
   try {
     //if not logged in, login 
@@ -10,7 +11,51 @@ router.get('/', async (req, res) => {
 
 
     // Get all story and JOIN with user data
-    const storyData = await Story.findAll({
+    // const storyData = await Story.findAll({
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ['name'],
+    //     },
+    //   ],
+    // });
+    // Serialize data so the template can read it
+    // const stories = storyData.map((story) => story.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('homepage', { 
+    //  stories, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+// router.get('/story/:id', async (req,res) => {
+//   try{
+//     const storyData = await Story.findByPk(req.params.id, {
+//         include:{
+//           model:Choice,
+//           // include: User
+//         }
+//     });
+  
+//     const story = storyData.get({plain: true});
+//     console.log("Story data pulled " + story);
+//     res.json(story);
+//   }catch(err){
+//     console.error(err);
+//   }
+// });
+
+
+//fetching this function to storyHandler.js. 
+router.get('/api/story', async (req, res) => {
+  try {
+
+     const storyData = await Story.findAll({
       include: [
         {
           model: User,
@@ -19,42 +64,72 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    // Serialize data so the template can read it
     const stories = storyData.map((story) => story.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      stories, 
-      logged_in: req.session.logged_in 
+    // const choiceData = await Choice.findAll({
+    //   where:{
+    //     story_id : Story.id
+    //   },
+    //   include: [
+    //     {
+    //       model: Story,
+    //       attributes: ['id', 'story', 'user_id', 'has_choice', 'is_dead'], 
+    //     },
+    //   ],
+    // });
+    
+    // const choices = choiceData.map(choice => choice.get({ plain: true }));
+
+
+    //add logic here 
+    stories.forEach((s) => {
+    if(s.has_choice){
+
+
+      // res.render('story', { 
+      //   stories, 
+      //   choices,
+      //   logged_in: req.session.logged_in 
+      // });
+    }
     });
+
+      res.render('story', { 
+        story:stories[2], 
+        logged_in: req.session.logged_in 
+      });
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });
 
-// router.get('/story/:id', async (req, res) => {
+//is above screw, delete above and use this
+// router.get('/api/story', async (req, res) => {
 //   try {
-//     const storyData = await Story.findByPk(req.params.id, {
+//     const storyData = await Story.findAll({
 //       include: [
 //         {
 //           model: User,
 //           attributes: ['name'],
 //         },
+//         // {
+//         //   model: Choice,
+//         //   attributes: ['has_choice', 'story'],
+//         // }
 //       ],
 //     });
 
-//     const story = storyData.get({ plain: true });
+//     const stories = storyData.map(story => story.get({ plain: true }));
 
-//     res.render('story', {
-//       ...story,
-//       logged_in: req.session.logged_in
-//     });
+//     res.json(stories);
 //   } catch (err) {
+//     console.error(err);
 //     res.status(500).json(err);
 //   }
 // });
 
-
+//after start button clicked, this is called
 router.get('/story', async (req, res) => {
   try {
     
@@ -64,19 +139,14 @@ router.get('/story', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
-        // {
-        //   include:Choice
-        // }
       ],
     });
 
     const stories = storyData.map((s) => { 
       return s.get({plain: true });
     });
-
-    res.render('story', {
-
-     stories,
+    res.render('intro', {
+       stories:stories,//all stories
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -85,24 +155,24 @@ router.get('/story', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Story }],
-    });
+// router.get('/profile', withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session ID
+//     const userData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['password'] },
+//       include: [{ model: Story }],
+//     });
 
-    const user = userData.get({ plain: true });
+//     const user = userData.get({ plain: true });
 
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('profile', {
+//       ...user,
+//       logged_in: true
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route

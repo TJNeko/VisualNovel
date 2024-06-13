@@ -1,20 +1,15 @@
-
-<body>
-
-
-
-  <p>Story now begins.... </p>
   <div class="story-section">
-    {{#each stories as |story|}}
-     <p class="paragraph" data-choice="{{story.has_choice}}"> {{story.story}}</p>
-    {{/each}}
+    {{!-- <p class="paragraph" data-choice="{{story.has_choice}}">
+    </p> --}}
+    <h1>{{story.story}}</h1>
   </div> 
 
     <div class="button-container">
     <button id="back-button">Back</button>
     <button id="next-button">Next</button>
-  </div>
+    </div>
 
-  <script src="/js/storyHandler.js"></script>
-  
-</body>
+  <script src="/js/storyHandler.js"></script>  
+  <script src="/js/game.js"></script>  
+
+

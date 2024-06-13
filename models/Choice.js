@@ -17,7 +17,7 @@ Choice.init(
         model: 'story',
         key: 'id',
       },
-      allowNull: false
+    //  allowNull: false
     },
     choice:{
       type: DataTypes.ARRAY(DataTypes.STRING),
