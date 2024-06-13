@@ -63,16 +63,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 */
-function storyDevelopment(story){
-
-    if(story.id===0){
-        console.log("prolog and for name input:");
-    }
-    if(story.has_choice){
-
-    }
-}
-
 
 
 function addEventListenersToParagraphs(){

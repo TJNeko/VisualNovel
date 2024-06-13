@@ -11,20 +11,20 @@ router.get('/', async (req, res) => {
 
 
     // Get all story and JOIN with user data
-    const storyData = await Story.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+    // const storyData = await Story.findAll({
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ['name'],
+    //     },
+    //   ],
+    // });
     // Serialize data so the template can read it
-    const stories = storyData.map((story) => story.get({ plain: true }));
+    // const stories = storyData.map((story) => story.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      stories, 
+    //  stories, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -64,10 +64,9 @@ router.get('/api/story', async (req, res) => {
     });
 
     const stories = storyData.map(story => story.get({ plain: true }));
-
+    
     //only first array of story is sent 
-    res.json(stories[0]);
-
+      res.json(stories[2]);
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -109,20 +108,15 @@ router.get('/story', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
-        // {
-        //   model: Choice,
-        //   attributes: ['has_choice', 'story'],
-        // }
       ],
     });
 
     const stories = storyData.map((s) => { 
       return s.get({plain: true });
     });
-
-    res.render('story', {
-
-     story:stories[0],//one object
+    res.render('intro', {
+       stories:stories,//all stories
+ //    story:stories[0],//one object
       logged_in: req.session.logged_in
     });
   } catch (err) {
