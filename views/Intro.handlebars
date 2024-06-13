@@ -1,14 +1,14 @@
 <h1>INTRO </h1>
 
  <div id="first-section">
-    <h1>{{stories.0.story}}&nbsp;&nbsp;
+    <h1>{{stories.0.story}}
     <input type="text" 
             class="transparent-input" 
             placeholder="Type name and press enter" id="user-name"> </h1>
      <button id="name-button" hidden/>
   </div>  
    <div id="second-section" style="display: none">
-    <h1 id="name-section">{{stories.1.story}}&nbsp;&nbsp;</h1>
+    <h1 id="name-section">{{stories.1.story}}</h1>
 
     <div class="button-container"> 
       <button id="back-button">Back</button>
@@ -16,43 +16,6 @@
     </div>  
 
     </div>
-
-    <script> 
-        const textBox = document.getElementById("user-name"); 
-        const button = document.getElementById("name-button");
-        const div1 = document.getElementById("first-section");
-        const div2 = document.getElementById("second-section");
-
-        textBox.addEventListener("keyup", function (event) { 
-  
-            // Checking if key pressed is ENTER or not 
-            // if the key pressed is ENTER 
-            // click listener on button is called 
-            if (event.keyCode == 13) { 
-                button.click(); 
-            } 
-        }); 
-        // This event is fired when button is clicked 
-        button.addEventListener("click", function () { 
-            let str = textBox.value; 
-            console.log(str); 
-
-          if (div2.style.display === "none") {
-              div1.style.display = "none";
-              div2.style.display = "block";
-              
-             
-          const nameSection = document.getElementById('name-section');
-          const secondParagraph = nameSection.textContent + str + "!";
-          nameSection.innerHTML = secondParagraph;
-
-      //    div2.appendChild(nameSection);
-          } else {
-              div1.style.display = "block";
-              div2.style.display = "none";
-          }
-        }); 
-
-    </script>
+<script src="/js/game.js"></script>  
 
 
