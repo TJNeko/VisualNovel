@@ -8,12 +8,13 @@
      <button id="name-button" hidden/>
   </div>  
    <div id="second-section" style="display: none">
-    <h1>{{stories.1.story}}&nbsp;&nbsp;
-    
-  </div>  
-    {{!-- <div class="button-container"> --}}
-    {{!-- <button id="back-button">Back</button>
-    <button id="next-button">Next</button> --}}
+    <h1 id="name-section">{{stories.1.story}}&nbsp;&nbsp;</h1>
+
+    <div class="button-container"> 
+      <button id="back-button">Back</button>
+      <button id="next-button">Next</button>
+    </div>  
+
     </div>
 
     <script> 
@@ -35,11 +36,17 @@
         button.addEventListener("click", function () { 
             let str = textBox.value; 
             console.log(str); 
-      //      textBox.innerHTML += "<p>" + str + "</p>" 
 
           if (div2.style.display === "none") {
               div1.style.display = "none";
               div2.style.display = "block";
+              
+             
+          const nameSection = document.getElementById('name-section');
+          const secondParagraph = nameSection.textContent + str + "!";
+          nameSection.innerHTML = secondParagraph;
+
+      //    div2.appendChild(nameSection);
           } else {
               div1.style.display = "block";
               div2.style.display = "none";
