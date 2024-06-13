@@ -1,8 +1,56 @@
 const router = require('express').Router();
-const { Story } = require('../../models');
+const { Story, Choice, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//get story by id
+
+router.get('/api/story', async (req, res) => {
+  try {
+    
+    const storyData = await Story.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        // {
+        //   include:Choice
+        // }
+      ],
+    });
+
+    const stories = storyData.map((s) => { 
+      return s.get({plain: true });
+    });
+
+    res.render('story', {
+
+     story:stories[0],//one object
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+router.get('/story', async (req,res) => {
+  try{
+    const storyData = await Story.findAll({
+        include:{
+          model:Choice,
+          // include: User
+        }
+    });
+  
+    const stories = storyData.get({plain: true});
+    console.log("Story data pulled " + stories[0]);
+    res.render("story",{
+      story:stories[0],
+      loggedIn:req.session.loggedIn
+    });
+    res.json(stories);
+  }catch(err){
+    console.error(err);
+  }
+});
 
 router.post('/', withAuth, async (req, res) => {
   try {
@@ -17,24 +65,6 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
-  try {
-    const storyData = await Story.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
 
-    if (!storyData) {
-      res.status(404).json({ message: 'No Story found with this id!' });
-      return;
-    }
-
-    res.status(200).json(storyData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Story, User } = require('../models');
+const { Story, User, Choice } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -18,7 +18,6 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-
     // Serialize data so the template can read it
     const stories = storyData.map((story) => story.get({ plain: true }));
 
@@ -32,28 +31,47 @@ router.get('/', async (req, res) => {
   }
 });
 
-// router.get('/story/:id', async (req, res) => {
-//   try {
-//     const storyData = await Story.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
 
-//     const story = storyData.get({ plain: true });
+router.get('/story/:id', async (req,res) => {
+  try{
+    const storyData = await Story.findByPk(req.params.id, {
+        include:{
+          model:Choice,
+          // include: User
+        }
+    });
+  
+    const story = storyData.get({plain: true});
+    console.log("Story data pulled " + story);
+    res.json(story);
+  }catch(err){
+    console.error(err);
+  }
+});
 
-//     res.render('story', {
-//       ...story,
-//       logged_in: req.session.logged_in
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+router.get('/api/story', async (req, res) => {
+  try {
+    const storyData = await Story.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        // {
+        //   model: Choice,
+        //   attributes: ['has_choice', 'story'],
+        // }
+      ],
+    });
 
+    const stories = storyData.map(story => story.get({ plain: true }));
+
+    res.json(stories);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
 
 router.get('/story', async (req, res) => {
   try {
@@ -65,7 +83,8 @@ router.get('/story', async (req, res) => {
           attributes: ['name'],
         },
         // {
-        //   include:Choice
+        //   model: Choice,
+        //   attributes: ['has_choice', 'story'],
         // }
       ],
     });
@@ -76,7 +95,7 @@ router.get('/story', async (req, res) => {
 
     res.render('story', {
 
-     stories,
+     story:stories[0],//one object
       logged_in: req.session.logged_in
     });
   } catch (err) {
