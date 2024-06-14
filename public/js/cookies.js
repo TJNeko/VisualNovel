@@ -20,6 +20,7 @@ function handleNextButtonClick() {
     displayStory(stories[userProgress].story);
 }
 
+
 // Function to handle progression and update progress bar
 function advanceStory(progressIncrement) {
  

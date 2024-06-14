@@ -3,12 +3,12 @@ header, .project:not(:last-child) {
   background: #000;
 }
 
-
 body {
   background-image: url('/images/HD-wallpaper-darkness-in-the-forest-creepy-forest-nature-dark.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   color: #ffffff;
+  font-family:cursive
 }
 
 .no-button {
@@ -32,60 +32,191 @@ body {
   margin-left: -5px;
 }
 
-
-.one-word-by-one{
-  color: Pink; 
+.one-word-by-one {
+  color: pink;
   font-family: "Courier";
   font-size: 20px;
   margin: 10px 0 0 10px;
   white-space: nowrap;
   overflow: hidden;
   width: 30em;
-  animation: type 4s steps(60, end); 
+  animation: type 4s steps(60, end);
 }
-@keyframes type{ 
-  from { width: 0; } 
-} 
+
+@keyframes type {
+  from { width: 0; }
+}
 
 @font-face {
-  font-family: Creepster;
-  src: url('/fonts/Creepster-Regular.ttf') format('truetype'); 
+  font-family: 'In-the-deep-dark-woods';
+  src: url('/fonts/In-the-deep-dark-woods.ttf') format('truetype'); 
 }
 
-.creepster{
-  font-family: Creepster;
+@font-face {
+  font-family: 'Creepy-Regular';
+  src: url('/fonts/Creepster-Regular.ttf') format('truetype');
+}
+
+.start-button {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #ff6666; 
+  text-decoration: none;
+  font-size: 24px;
+  font-family: 'Creepy-Regular', sans-serif; 
+  text-align: center;
+  display: block;
+  margin: auto;
+  margin-top: 50px; 
+  transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #555555;
+  color: #ffffff;
+}
+
+
+.creepster {
+  font-family: 'Creepy-Regular', sans-serif; 
   text-align: center;
   font-size: 150px;
   margin: auto;
   width: 50%;
 }
 
-.fade-in-title { animation: fadeIn 20s; }
+.fade-in-title {
+  animation: fadeIn 20s;
+}
 
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
 
-
 .play-button {
   display: inline-block;
-  padding: 0; /* Remove padding to prevent extra spacing */
-  border: none; /* Remove border */
-  background: none; /* Remove background */
+  padding: 0;
+  border: none;
+  background: none;
 }
 
 .play-button img {
-  width: 100px; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
+  width: 100px;
+  height: auto;
 }
-
 
 .play-button:hover {
   background-color: #fff;
   color: #000;
 }
 
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#back-button {
+  order: 1;
+}
+
+#next-button {
+  order: 2;
+}
+header, .project:not(:last-child) {
+  border-bottom: 5px solid #666666;
+  background: #1a1a1a; 
+}
+
+body {
+  background-image: url('/images/HD-wallpaper-darkness-in-the-forest-creepy-forest-nature-dark.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  font-family: 'In-the-deep-dark-woods', sans-serif; 
+}
+
+.no-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #ff6666; 
+  text-decoration: none;
+  font-size: 100%;
+}
+
+.no-button:hover {
+  color: #ff99cc; 
+  text-decoration: underline;
+}
+
+.dollar-amount {
+  color: #ff6666;
+  font-weight: bold;
+  margin-left: -5px;
+}
+
+.one-word-by-one {
+  color: #ff99cc; 
+  font-family: "Courier";
+  font-size: 20px;
+  margin: 10px 0 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 30em;
+  animation: type 4s steps(60, end);
+}
+
+@keyframes type {
+  from { width: 0; }
+}
+
+@font-face {
+  font-family: 'In-the-deep-dark-woods';
+  src: url('/fonts/In-the-deep-dark-woods.ttf') format('truetype'); 
+}
+
+@font-face {
+  font-family: 'Creepy-Regular';
+  src: url('/fonts/Creepster-Regular.ttf') format('truetype');
+}
+
+.creepster {
+  font-family: 'Creepy-Regular', sans-serif; 
+  text-align: center;
+  font-size: 150px;
+  margin: auto;
+  width: 50%;
+}
+
+.fade-in-title {
+  animation: fadeIn 20s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.play-button {
+  display: inline-block;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.play-button img {
+  width: 100px;
+  height: auto;
+}
+
+.play-button:hover {
+  background-color: #555555; 
+  color: #ffffff; 
+}
 
 .button-container {
   display: flex;
@@ -100,7 +231,42 @@ body {
   order: 2;
 }
 
-.play-button img {
-  width: 100px; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
+/* Background style for the title container */
+.title-container {
+  background: url('/images/title-background.jpg'); 
+  background-repeat: no-repeat;
+  padding: 50px; 
+  text-align: center;
+}
+
+/* Background style for the story container */
+.story-container {
+  background: url('/images/leaf paper.jpg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 50px;
+  color: #121111; 
+  font-family: cursive;
+}
+
+/* Additional styles for story text */
+.story-container p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+
+/* CSS for the start link */
+#start-link {
+  font-family: 'Creepster', sans-serif; 
+  font-size: 24px; 
+  text-decoration: none; 
+  color: #fff; 
+  transition: transform 0.3s ease;
+  margin-top: 20px; 
+}
+
+/* Hover effect */
+#start-link:hover {
+  transform: scale(1.1); 
 }
