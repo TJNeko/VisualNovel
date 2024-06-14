@@ -231,6 +231,7 @@ body {
   order: 2;
 }
 
+<<<<<<< HEAD
 /* Background style for the title container */
 .title-container {
   background: url('/images/title-background.jpg'); 
@@ -270,3 +271,17 @@ body {
 #start-link:hover {
   transform: scale(1.1); 
 }
+=======
+  
+.transparent-input { 
+  background: transparent; 
+} 
+
+input { 
+  width: 300px; 
+  height: 40px; 
+  font-size: 24px; 
+  border: 1px solid #383535; 
+  color:#ffffff;
+} 
+>>>>>>> e187c979f1510a5ee292ec825a2ac73d50238d22

@@ -1,60 +1,78 @@
 
-document.addEventListener('DOMContentLoaded', () => {
-    let paragraphs = document.querySelectorAll(".paragraph");
-    let sentences = Array.from(paragraphs).map(paragraph => {
-        return {
-            element: paragraph,
-            story: paragraph.textContent,
-            hasChoice: paragraph.getAttribute("data-choice")
-        };
+let currentIndex = 0;
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const storySection = document.querySelector(".story-section");
+
+    const options = {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+      };
+      
+      try{
+        //get introduction and send to the page
+      const data = await fetch('/api/story', options);
+      if(!data.ok){
+        throw new Error(`HTTP error! status: ${data.status}`);
+      }
+      const story = await data.json();
     
+      console.log("fetched story: " + story.story);
+      //displaying first story  (stories[0])
+      storySection.innerHTML='';
+      const paragraph = document.createElement('p');
+      paragraph.className = 'paragraph';
+      paragraph.setAttribute('data-choice', story.has_choice);
+      paragraph.textContent = story.story;
+      storySection.appendChild(paragraph);
+
+      addEventListenersToParagraphs();
+  } catch (error) {
+    console.error('Fetch error: ', error);
+  }
 });
-function DelayNode(ms){
-    return new Promise(resolve => setTimeout(resolve, ms));
+
+/* is above screw, delete above and use this
+document.addEventListener('DOMContentLoaded', async () => {
+    const storySection = document.querySelector(".story-section");
+
+    const options = {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+      };
+      
+      try{
+      const data = await fetch('/api/story', options);
+      if(!data.ok){
+        throw new Error(`HTTP error! status: ${data.status}`);
+      }
+      const stories = await data.json();
+    
+      console.log("fetched stories: " + stories[0].story);
+      //displaying first story
+      storySection.innerHTML='';
+      const paragraph = document.createElement('p');
+      paragraph.className = 'paragraph';
+      paragraph.setAttribute('data-choice', stories[0].has_choice);
+      paragraph.textContent = stories[0].story;
+      storySection.appendChild(paragraph);
+
+      addEventListenersToParagraphs();
+  } catch (error) {
+    console.error('Fetch error: ', error);
+  }
+});
+*/
+
+
+function addEventListenersToParagraphs(){
+    const paragraphs = document.querySelector(".paragraph");
+    paragraphs.addEventListener('click',handleParagraphClick);
+
 }
-
-async function storyChoice(){  
-
-    try{
-        for(let sentenceObj of sentences){
-            console.log("sentence: " + sentenceObj.story);
-            console.log("hasChoice: " + sentenceObj.hasChoice);
-        // for(let i=0; i<5;i++){
-            await DelayNode(1000);
-        }
-
-    }catch(err){
-        console.error(err);
-    }
-
-}
-
-storyChoice();
-
 function handleParagraphClick(event){
     let paragraph = event.currentTarget;
     let story = paragraph.textContent;
     let hasChoice = paragraph.getAttribute('data-choice');
-    console.log(`Paragraph clicked: ${story}`);
-    console.log(`Has choice: ${hasChoice}`);
-    // Add your logic here based on the story and hasChoice value
 }
-  // Add event listeners to each paragraph
-  paragraphs.forEach(paragraph => {
-    paragraph.addEventListener('click', handleParagraphClick);
-});
-});
-// const logout = async () => {
-//     const response = await fetch('/api/users/logout', {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//     });
-  
-//     if (response.ok) {
-//       document.location.replace('/');
-//     } else {
-//       alert(response.statusText);
-//     }
-//   };
-  
-//   document.querySelector('#logout').addEventListener('click', logout);
+
