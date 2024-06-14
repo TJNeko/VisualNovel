@@ -1,43 +1,43 @@
 
 
-// Function to start the game
-function initGame() {
+// // Function to start the game
+// function initGame() {
 
-  displayStory("Welcome to DeadEnd the visual Novel game!");
+//   displayStory("Welcome to DeadEnd the visual Novel game!");
   
-  getPlayerName();
-}
+//   getPlayerName();
+// }
 
-// Function for the next button 
-function handleNextButtonClick() {
+// // Function for the next button 
+// function handleNextButtonClick() {
  
-  const nextStoryPart = getNextStoryPart();
-  displayStory(nextStoryPart);
-}
+//   const nextStoryPart = getNextStoryPart();
+//   displayStory(nextStoryPart);
+// }
 
-// Function to display the story text on screen 
-function displayStory(storyText) {
+// // Function to display the story text on screen 
+// function displayStory(storyText) {
  
-  const storyContainer = document.getElementById('storyContainer');
-  if(storyText)
-    storyContainer.textContent = storyText;
-}
+//   const storyContainer = document.getElementById('storyContainer');
+//   if(storyText)
+//     storyContainer?.textContent = storyText;
+// }
 
-// Function to prompt the player to enter name
-function getPlayerName() {
-  const playerName = prompt("Please enter your name:");
+// // Function to prompt the player to enter name
+// function getPlayerName() {
+//   const playerName = prompt("Please enter your name:");
  
-  if (playerName) {
+//   if (playerName) {
    
-      window.playerName = playerName;
-  }
-}
+//       window.playerName = playerName;
+//   }
+// }
 
-// Function to fetch the next part of the story (can be from predefined list or object)
-function getNextStoryPart() {
+// // Function to fetch the next part of the story (can be from predefined list or object)
+// function getNextStoryPart() {
   
-  // return "..";
-}
+//   // return "..";
+// }
 
 const textBox = document.getElementById("user-name"); 
 const button = document.getElementById("name-button");
@@ -57,7 +57,7 @@ textBox.addEventListener("keyup", function (event) {
 }); }
 
 //str is name that user input. Then this user input name is appended to story[1] and send back to intro.handlebars
-button.addEventListener("click", function () { 
+button?.addEventListener("click", function () { 
     let str = textBox.value; //user entered name
 
     //when user entered name field, story[0] will be hidden and story[1] shows
@@ -75,8 +75,8 @@ button.addEventListener("click", function () {
   }
 }); 
 
-nextButton.addEventListener("click",function(){
-  window.location.href = '/api/story';
+nextButton?.addEventListener("click",function(){
+  window.location.href = '/story/3';
 });
 
 // Initialize the game when the DOM is fully loaded
