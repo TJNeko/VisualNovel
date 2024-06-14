@@ -34,6 +34,13 @@ Shelly- https://github.com/namahage1
 Yvonne- https://github.com/yvonneewa
 TJ- https://github.com/TJNeko
 
+##  References
+- images 
+[   ararn](https://www.artstation.com/)
+ https://wallpapercave.com/spooky-forest-wallpapers
+ ?
+
+
 ## License
 
 Please refer to the LICENSE in the repo.
