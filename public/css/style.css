@@ -244,10 +244,12 @@ body {
   background: url('/images/leaf paper.jpg'); 
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 50px;
+  padding: 0; /* Remove or reduce padding */
   color: #121111; 
   font-family: cursive;
 }
+
+
 
 /* Additional styles for story text */
 .story-container p {
