@@ -1,4 +1,3 @@
-
 <body>
 <div class="story-container">
   <div class="story-section">
@@ -8,8 +7,13 @@
   </div> 
 
     <div class="button-container">
-    <button id="back-button">Back</button>
-    <button id="next-button">Next</button>
+      {{#each story.choices as |choice|}}
+        <a href="/story/{{choice.next_story_id}}">
+          <button>{{choice.text}}</button>
+        </a>
+      {{/each}}
+    {{!-- <button id="back-button">Back</button>
+    <button id="next-button">Next</button> --}}
     </div>
   {{!-- <script src="/js/game.js"></script>   --}}
   {{!-- <script src="/js/storyHandler.js"></script> --}}

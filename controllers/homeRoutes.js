@@ -1,14 +1,13 @@
-const router = require('express').Router();
-const { Story, User, Choice } = require('../models');
-const withAuth = require('../utils/auth');
+const router = require("express").Router();
+const { Story, User, Choice } = require("../models");
+const withAuth = require("../utils/auth");
 
 //initial loading page
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    //if not logged in, login 
-    
-    //else start over the game or continue
+    //if not logged in, login
 
+    //else start over the game or continue
 
     // Get all story and JOIN with user data
     // const storyData = await Story.findAll({
@@ -23,15 +22,14 @@ router.get('/', async (req, res) => {
     // const stories = storyData.map((story) => story.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-    //  stories, 
-      logged_in: req.session.logged_in 
+    res.render("homepage", {
+      //  stories,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
 
 // router.get('/story/:id', async (req,res) => {
 //   try{
@@ -41,7 +39,7 @@ router.get('/', async (req, res) => {
 //           // include: User
 //         }
 //     });
-  
+
 //     const story = storyData.get({plain: true});
 //     console.log("Story data pulled " + story);
 //     res.json(story);
@@ -50,16 +48,14 @@ router.get('/', async (req, res) => {
 //   }
 // });
 
-
-//fetching this function to storyHandler.js. 
-router.get('/api/story', async (req, res) => {
+//fetching this function to storyHandler.js.
+router.get("/api/story", async (req, res) => {
   try {
-
-     const storyData = await Story.findAll({
+    const storyData = await Story.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ["name"],
         },
       ],
     });
@@ -73,31 +69,28 @@ router.get('/api/story', async (req, res) => {
     //   include: [
     //     {
     //       model: Story,
-    //       attributes: ['id', 'story', 'user_id', 'has_choice', 'is_dead'], 
+    //       attributes: ['id', 'story', 'user_id', 'has_choice', 'is_dead'],
     //     },
     //   ],
     // });
-    
+
     // const choices = choiceData.map(choice => choice.get({ plain: true }));
 
-
-    //add logic here 
+    //add logic here
     stories.forEach((s) => {
-    if(s.has_choice){
-
-
-      // res.render('story', { 
-      //   stories, 
-      //   choices,
-      //   logged_in: req.session.logged_in 
-      // });
-    }
+      if (s.has_choice) {
+        // res.render('story', {
+        //   stories,
+        //   choices,
+        //   logged_in: req.session.logged_in
+        // });
+      }
     });
 
-      res.render('story', { 
-        story:stories[2], 
-        logged_in: req.session.logged_in 
-      });
+    res.render("story", {
+      story: stories[2],
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -130,26 +123,57 @@ router.get('/api/story', async (req, res) => {
 // });
 
 //after start button clicked, this is called
-router.get('/story', async (req, res) => {
+router.get("/story", async (req, res) => {
   try {
-    
     const storyData = await Story.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ["name"],
         },
       ],
     });
 
-    const stories = storyData.map((s) => { 
-      return s.get({plain: true });
+    const stories = storyData.map((s) => {
+      return s?.get({ plain: true });
     });
-    res.render('intro', {
-       stories:stories,//all stories
-      logged_in: req.session.logged_in
+    res.render("intro", {
+      stories: stories, //all stories
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/story/:id", async (req, res) => {
+  try {
+    const storyData = await Story.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+      ],
+    });
+
+    const story = storyData.get({ plain: true });
+
+    if(story.has_choice) {
+      res.render("storyWithChoices", {
+        story: story, //one story
+        logged_in: req.session.logged_in,
+      });
+    } else {
+      res.render("story", {
+        story: story, //one story
+        logged_in: req.session.logged_in,
+      });
+    }
+
+  } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -174,14 +198,14 @@ router.get('/story', async (req, res) => {
 //   }
 // });
 
-router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect("/profile");
     return;
   }
 
-  res.render('login');
+  res.render("login");
 });
 
 module.exports = router;

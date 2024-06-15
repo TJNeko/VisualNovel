@@ -3,7 +3,7 @@ const { User, Story, Choice } = require('../models');
 
 const userData = require('./userData.json');
 const storyData = require('./storyData.json');
-const choiceData = require('./choiceData.json');
+// const choiceData = require('./choiceData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -20,7 +20,7 @@ const seedDatabase = async () => {
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
-  await Choice.bulkCreate(choiceData);
+  // await Choice.bulkCreate(choiceData);
   process.exit(0);
 };
 
