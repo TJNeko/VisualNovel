@@ -47,11 +47,11 @@
     "choices": [
       {
         "text": "DRINK THE TEA",
-        "next_story_id": 12
+        "next_story_id": 15
       },
       {
         "text": "DUMP THE TEA OUT ONTO THE FLOOR",
-        "next_story_id": 13
+        "next_story_id": 12
       }
     ]
   },
@@ -98,11 +98,11 @@
     "choices": [
       {
         "text": "HIDE UNDER THE BED",
-        "next_story_id": 21
+        "next_story_id": 22
       },
       {
         "text": "TRY TO CLIMB THROUGH THE WINDOW",
-        "next_story_id": 22
+        "next_story_id": 21
       }
     ]
   },
