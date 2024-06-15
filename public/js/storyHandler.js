@@ -26,8 +26,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       paragraph.textContent = story.story;
       storySection.appendChild(paragraph);
 
-      console.log(story.choices)
-
       addEventListenersToParagraphs();
   } catch (error) {
     console.error('Fetch error: ', error);

@@ -45,20 +45,6 @@ router.get("/api/story", async (req, res) => {
 
     const stories = storyData.map((story) => story.get({ plain: true }));
 
-    // const choiceData = await Choice.findAll({
-    //   where:{
-    //     story_id : Story.id
-    //   },
-    //   include: [
-    //     {
-    //       model: Story,
-    //       attributes: ['id', 'story', 'user_id', 'has_choice', 'is_dead'],
-    //     },
-    //   ],
-    // });
-
-    // const choices = choiceData.map(choice => choice.get({ plain: true }));
-
     res.render("story", {
       story: stories[2],
       logged_in: req.session.logged_in,
@@ -112,7 +98,7 @@ router.get("/story/:id", async (req, res) => {
         story: story, //one story
         logged_in: req.session.logged_in,
       });
-    } else {
+    } else{
       res.render("story", {
         story: story, //one story
         logged_in: req.session.logged_in,

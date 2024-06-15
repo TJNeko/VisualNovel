@@ -2,14 +2,16 @@
 <body>
 <div class="story-container">
   <div class="story-section">
-    <h1 id="current-story" dead="{{#if story.is_dead}}{{story.is_dead}}{{else}}false{{/if}}">{{story.story}}</h1> 
+    <h1 id="current-story" dead="{{#if story.is_dead}}{{story.is_dead}}{{else}}false{{/if}}">
+    {{story.story}}</h1> 
   </div> 
-    {{#unless story.is_dead}}
+  <h1>is dead? {{story.is_dead}}</h1>
+    {{#if story.is_dead}}{{else}}
       <div class="button-container">   
         <button id="back-button">Back</button>
         <button id="next-button">Next</button>
       </div>
-    {{/unless}}
+    {{/if}}
   {{!-- <script src="/js/game.js"></script>   --}}
   {{!-- <script src="/js/storyHandler.js"></script> --}}
   <script src="/js/next.js"></script>
