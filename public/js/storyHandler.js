@@ -26,46 +26,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       paragraph.textContent = story.story;
       storySection.appendChild(paragraph);
 
-      console.log(story.choices)
-
       addEventListenersToParagraphs();
   } catch (error) {
     console.error('Fetch error: ', error);
   }
 });
-
-// /* is above screw, delete above and use this
-// document.addEventListener('DOMContentLoaded', async () => {
-//     const storySection = document.querySelector(".story-section");
-
-//     const options = {
-//         method: 'GET',
-//         headers: {'Content-Type': 'application/json'}
-//       };
-      
-//       try{
-//       const data = await fetch('/api/story', options);
-//       if(!data.ok){
-//         throw new Error(`HTTP error! status: ${data.status}`);
-//       }
-//       const stories = await data.json();
-    
-//       console.log("fetched stories: " + stories[0].story);
-//       //displaying first story
-//       storySection.innerHTML='';
-//       const paragraph = document.createElement('p');
-//       paragraph.className = 'paragraph';
-//       paragraph.setAttribute('data-choice', stories[0].has_choice);
-//       paragraph.textContent = stories[0].story;
-//       storySection.appendChild(paragraph);
-
-//       addEventListenersToParagraphs();
-//   } catch (error) {
-//     console.error('Fetch error: ', error);
-//   }
-// });
-// */
-
 
 function addEventListenersToParagraphs(){
     const paragraphs = document.querySelector(".paragraph");

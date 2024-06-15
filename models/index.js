@@ -10,15 +10,6 @@ Story.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-// Story.hasMany(Choice, {
-//   foreignKey: 'story_id',
-//   onDelete: 'CASCADE'
-// });
-
-// Choice.belongsTo(Story, {
-//   foreignKey: 'story_id'
-// });
-
 module.exports = { 
   User, 
   Story, 
