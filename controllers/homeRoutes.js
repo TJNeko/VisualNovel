@@ -31,23 +31,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// router.get('/story/:id', async (req,res) => {
-//   try{
-//     const storyData = await Story.findByPk(req.params.id, {
-//         include:{
-//           model:Choice,
-//           // include: User
-//         }
-//     });
-
-//     const story = storyData.get({plain: true});
-//     console.log("Story data pulled " + story);
-//     res.json(story);
-//   }catch(err){
-//     console.error(err);
-//   }
-// });
-
 //fetching this function to storyHandler.js.
 router.get("/api/story", async (req, res) => {
   try {
@@ -76,17 +59,6 @@ router.get("/api/story", async (req, res) => {
 
     // const choices = choiceData.map(choice => choice.get({ plain: true }));
 
-    //add logic here
-    stories.forEach((s) => {
-      if (s.has_choice) {
-        // res.render('story', {
-        //   stories,
-        //   choices,
-        //   logged_in: req.session.logged_in
-        // });
-      }
-    });
-
     res.render("story", {
       story: stories[2],
       logged_in: req.session.logged_in,
@@ -96,31 +68,6 @@ router.get("/api/story", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-//is above screw, delete above and use this
-// router.get('/api/story', async (req, res) => {
-//   try {
-//     const storyData = await Story.findAll({
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//         // {
-//         //   model: Choice,
-//         //   attributes: ['has_choice', 'story'],
-//         // }
-//       ],
-//     });
-
-//     const stories = storyData.map(story => story.get({ plain: true }));
-
-//     res.json(stories);
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json(err);
-//   }
-// });
 
 //after start button clicked, this is called
 router.get("/story", async (req, res) => {
