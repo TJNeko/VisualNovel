@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Story, User, Choice } = require("../models");
 const withAuth = require("../utils/auth");
 
+
 //initial loading page
 router.get("/", async (req, res) => {
   try {
@@ -90,15 +91,23 @@ router.get("/story/:id", async (req, res) => {
         },
       ],
     });
-
     const story = storyData.get({ plain: true });
-
     if(story.has_choice) {
       res.render("storyWithChoices", {
         story: story, //one story
         logged_in: req.session.logged_in,
       });
-    } else{
+    } else if(story.is_dead){
+      res.render("dead", {
+        story: story, //one story
+        logged_in: req.session.logged_in,
+      });
+    }else if(story.is_dead===false){
+      res.render("escape", {
+        story: story, //one story
+        logged_in: req.session.logged_in,
+      });
+    }else{
       res.render("story", {
         story: story, //one story
         logged_in: req.session.logged_in,

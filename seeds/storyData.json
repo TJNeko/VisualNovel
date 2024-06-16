@@ -21,10 +21,12 @@
   },
   {
     "story": "As you head through the path and wind through the trees you hear distant footsteps. They slowly get closer and closer to you as you continue to walk. Suddenly you hear heavy breathing breathing behind you, you turn around to see a wolf snarling at you, before you can move it bites your left leg and tears into it tearing the meat from the bone. You fall to the ground screaming in pain, but no one hears you. You try to crawl away but what is left of your leg crumples under the pressure of your own weight. You lay there as the wolf approaches knowing this is your end.",
-    "is_dead":true
+    "is_dead":true,
+    "disable_go_back":true
   },
   {
-    "story":"As you approach the rundown cabin you notice a faint glow from one of the windows, you make your way to the door. A cold sweat runs down your face as you knock."
+    "story":"As you approach the rundown cabin you notice a faint glow from one of the windows, you make your way to the door. A cold sweat runs down your face as you knock.",
+    "disable_go_back":true
   },
   {
     "story":"Hello is anybody there?"
@@ -56,17 +58,20 @@
     ]
   },
   {
-    "story":"Dr. Connors looks at you with disbelief as you pour the tea he just gave you onto his floor."
+    "story":"Dr. Connors looks at you with disbelief as you pour the tea he just gave you onto his floor.",
+    "disable_go_back":true
   },
   {
     "story":"Dr. Connors: What in the hell do you think you’re doing? I bring you into my house and offer you tea and a place to sleep and you disrespect my home like this?"
   },
   {
     "story":"Dr. Connors opens his long gray coat revealing a pistol, as he draws the gun you try to get up and run but Dr. Connors is too fast on the trigger. You look down and see red from your stomach stain your white shirt, you lay on the ground gasping for air. As your vision slowly fades away you see the smiling face of Dr. Connors staring down at you.",
-    "is_dead":true
+    "is_dead":true,
+    "disable_go_back":true
   },
   {
-    "story":"You take the tea from Dr. Connors and take a drink, its warm and helps to come you down."
+    "story":"You take the tea from Dr. Connors and take a drink, its warm and helps to come you down.",
+    "disable_go_back":true
   },
   {
     "story":"Dr. Connors: Let me show you to the spare room you will be safe there until the morning, then we can get you out of these woods."
@@ -87,10 +92,12 @@
   },
   {
     "story":"You fall into a deep sleep, you can’t wake up, you hear the horrifying sound of a saw cutting through bone and Dr. Connors laughing but you can’t wake up, and you never do.",
-    "is_dead":true
+    "is_dead":true,
+    "disable_go_back":true
   },
   {
-    "story":"As you approach the rundown cabin you notice a faint glow from one of the windows, you make your way to the door. A cold sweat runs down your face as you knock."
+    "story":"As you approach the rundown cabin you notice a faint glow from one of the windows, you make your way to the door. A cold sweat runs down your face as you knock.",
+    "disable_go_back":true
   },
   {
     "story":"You stay awake and wait for Dr. Connors to walk away from the room, you peek through the keyhole and see Dr. Connors humming and sharpening a saw, you try the handle, but the door is locked. What will you do?",
@@ -108,10 +115,12 @@
   },
   {
     "story":"You throw open the window and jump out. You are falling for a very long time, in your panic you forgot that Dr. Connors took you to a room on the third floor. As you hit the ground your knees bend backwards and buckle. You lay there with your legs crumpled in a mess underneath you. You pass out from the pain.",
-    "is_dead":true
+    "is_dead":true,
+    "disable_go_back":true
   },
   {
     "story":"You hide under the bed and wait, Dr. Connors enters the room holding the saw, He pulls back the covers, you are not there. He opens the wardrobe, you are not there. In a panic he runs out of the house to look for you. Now is your chance, you get out from under the bed and run out the door into the woods. You have escaped for now.",
-    "is_dead":false
+    "is_dead":false,
+    "disable_go_back":true
   }
 ]
