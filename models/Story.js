@@ -56,6 +56,9 @@ Story.init(
         }
       },
     },
+    disable_go_back:{
+      type: DataTypes.BOOLEAN
+    }
   },
   {
     sequelize,
