@@ -5,18 +5,18 @@
     <input type="text" 
             class="transparent-input" 
             placeholder="Type name and press enter" id="user-name"
-            autocomplete="off"> </h1>
+            autocomplete="off"> 
+    </h1>
      <button id="name-button" hidden/>
   </div>  
    <div id="second-section" style="display: none">
     <h1 id="name-section">{{stories.1.story}}</h1>
     <div class="button-container"> 
-      {{!-- <button id="back-button1">Back</button> --}}
       <button id="next-button1">Next</button>
     </div>  
     </div>
 
-    {{!-- <div id="other-section" style="display: none">
+    <div id="other-section" style="display: none">
       {{#each (sliceFromIndex stories 2)  as  |story|}}
 
       <h1 id={{story.id}} class="choice" data-choice="{{story.has_choice}}">{{story.story}}</h1>
@@ -25,8 +25,8 @@
       <button id="back-button">Back</button>
       <button id="next-button">Next</button>
     </div>  
-    </div> --}}
-<script src="/js/game.js">
+    </div>
+    <script src="/js/game.js">
 
 
 </script>  

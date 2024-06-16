@@ -241,7 +241,7 @@ body {
 
 /* Background style for the story container */
 .story-container {
-  background: url('/images/leaf paper.jpg'); 
+  /* background: url('/images/leaf paper.jpg');  */
   background-size: cover;
   background-repeat: no-repeat;
   padding: 0; /* Remove or reduce padding */
@@ -271,4 +271,16 @@ body {
 /* Hover effect */
 #start-link:hover {
   transform: scale(1.1); 
+}
+.transparent-input { 
+  background: none; /* Transparent background */
+  border: none;
+} 
+
+input { 
+  width: 300px; 
+  height: 40px; 
+  font-size: 24px; 
+  /* border: 1px solid #383535;  */
+  color:#ffffff;
 }
