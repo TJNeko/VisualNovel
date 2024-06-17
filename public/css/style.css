@@ -125,10 +125,19 @@ body {
 #next-button {
   order: 2;
 }
-header, .project:not(:last-child) {
+header {
+  width: 100%; 
+  max-width: 100%; 
+  padding: 10px 20px; 
+  margin: 0; 
+  box-sizing: border-box; 
   border-bottom: 5px solid #666666;
   background: #1a1a1a; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 
 body {
   background-image: url('/images/HD-wallpaper-darkness-in-the-forest-creepy-forest-nature-dark.jpg');
@@ -243,23 +252,23 @@ body {
 .story-container {
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 20px; /* Adjust padding as needed */
+  padding: 20px; 
   color: whitesmoke;
-  font-family: 'In-the-deep-dark-woods', sans-serif; /* Assuming this is your desired font */
+  font-family: 'In-the-deep-dark-woods', sans-serif; 
   
-  /* Center content vertically and horizontally */
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensure full viewport height */
+  min-height: 100vh;
 }
 
 /* Additional styles for story text */
 .story-container p {
   font-size: 18px;
   line-height: 1.5;
-  text-align: justify; /* Example of text alignment */
+  text-align: justify; 
 }
 
 
@@ -270,7 +279,7 @@ body {
   transform: scale(1.1); 
 }
 .transparent-input { 
-  background: none; /* Transparent background */
+  background: none; 
   border: none;
 } 
 
