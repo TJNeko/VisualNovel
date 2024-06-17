@@ -9,7 +9,39 @@
           <button>{{choice.text}}</button>
         </a>
       {{/each}}
-    </div>
-  <script src="/js/next.js"></script>
+    </div> 
   </div>
+  <script src="/js/game.js"> 
+  
+ let currentIndex = 0;
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const storySection = document.querySelector(".story-section");
+
+    const options = {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+      };
+      
+      try{
+        //get introduction and send to the page
+      const data = await fetch('/api/story', options);
+      if(!data.ok){
+        throw new Error(`HTTP error! status: ${data.status}`);
+      }
+      const story = await data.json();
+    
+      //displaying first story  (stories[0])
+      storySection.innerHTML='';
+      const paragraph = document.createElement('p');
+      paragraph.className = 'paragraph';
+      paragraph.setAttribute('data-choice', story.has_choice);
+      paragraph.textContent = story.story;
+      storySection.appendChild(paragraph);
+
+      addEventListenersToParagraphs();
+  } catch (error) {
+    console.error('Fetch error: ', error);
+  }
+});  </script>
 </body>
