@@ -35,7 +35,18 @@
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
+  <script src="/js/logout.js">
+
+ 
+        // Function to hide part of the URL
+        function hidePartialURL() {
+            const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            window.history.replaceState({}, document.title, newURL);
+        }
+        // Call the function when the page loads
+        window.addEventListener('load', hidePartialURL);
+
+  </script>
   {{/if}}
 </body>
 
