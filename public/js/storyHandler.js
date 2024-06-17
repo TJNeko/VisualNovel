@@ -1,4 +1,3 @@
-
 let currentIndex = 0;
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       const story = await data.json();
     
-      console.log("fetched story: " + story.story);
       //displaying first story  (stories[0])
       storySection.innerHTML='';
       const paragraph = document.createElement('p');

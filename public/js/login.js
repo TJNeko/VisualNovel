@@ -36,7 +36,7 @@ try{
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/');
     } else {
       alert(`user name,  ${name } already taken`);
     }

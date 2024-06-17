@@ -1,49 +1,12 @@
-
-
-// // Function to start the game
-// function initGame() {
-
-//   displayStory("Welcome to DeadEnd the visual Novel game!");
-  
-//   getPlayerName();
-// }
-
-// // Function for the next button 
-// function handleNextButtonClick() {
- 
-//   const nextStoryPart = getNextStoryPart();
-//   displayStory(nextStoryPart);
-// }
-
-// // Function to display the story text on screen 
-// function displayStory(storyText) {
- 
-//   const storyContainer = document.getElementById('storyContainer');
-//   if(storyText)
-//     storyContainer?.textContent = storyText;
-// }
-
-// // Function to prompt the player to enter name
-// function getPlayerName() {
-//   const playerName = prompt("Please enter your name:");
- 
-//   if (playerName) {
-   
-//       window.playerName = playerName;
-//   }
-// }
-
-// // Function to fetch the next part of the story (can be from predefined list or object)
-// function getNextStoryPart() {
-  
-//   // return "..";
-// }
-
 const textBox = document.getElementById("user-name"); 
 const button = document.getElementById("name-button");
-const nextButton = document.getElementById("next-button1");
+const nextButton1 = document.getElementById("next-button1");
 const div1 = document.getElementById("first-section");
 const div2 = document.getElementById("second-section");
+const nextButton = document.getElementById("next-button");
+const backButton = document.getElementById("back-button");
+const currentStory = document.getElementById("current-story")
+const isDead = currentStory?.getAttribute("dead");
 
 if(textBox){
 textBox.addEventListener("keyup", function (event) { 
@@ -75,10 +38,23 @@ button?.addEventListener("click", function () {
   }
 }); 
 
-nextButton?.addEventListener("click",function(){
+nextButton1?.addEventListener("click",function(){
   window.location.href = '/story/3';
 });
 
+//after dead, this button should be disabled
+nextButton?.addEventListener("click", () => {
+    const url = window.location.href;
+    const currentStoryId = url.split("/")[4];
 
-// Initialize the game when the DOM is fully loaded
-//document.addEventListener('DOMContentLoaded', initGame);
+    window.location.href = "/story/" + (parseInt(currentStoryId) + 1)
+})
+
+//after choice and dead, this button should be disabled
+backButton?.addEventListener("click", () => {
+    const url = window.location.href;
+    const currentStoryId = url.split("/")[4];
+    const currentStoryPg = parseInt(currentStoryId);
+    
+    window.location.href = "/story/" + (parseInt(currentStoryId) - 1)
+})
