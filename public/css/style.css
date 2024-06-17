@@ -97,6 +97,7 @@ body {
 }
 
 .play-button {
+  scale: 3;
   display: inline-block;
   padding: 0;
   border: none;
@@ -125,10 +126,19 @@ body {
 #next-button {
   order: 2;
 }
-header, .project:not(:last-child) {
+header {
+  width: 100%; 
+  max-width: 100%; 
+  padding: 10px 20px; 
+  margin: 0; 
+  box-sizing: border-box; 
   border-bottom: 5px solid #666666;
   background: #1a1a1a; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 
 body {
   background-image: url('/images/HD-wallpaper-darkness-in-the-forest-creepy-forest-nature-dark.jpg');
@@ -221,6 +231,8 @@ body {
 .button-container {
   display: flex;
   justify-content: space-between;
+  font-size: 25px; 
+  padding: 15px 20px; 
 }
 
 #back-button {
@@ -231,6 +243,13 @@ body {
   order: 2;
 }
 
+#back-button, #next-button {
+  font-size: 20px; 
+  padding: 10px 20px; 
+}
+
+
+
 /* Background style for the title container */
 .title-container {
   background: url('/images/title-background.jpg'); 
@@ -239,40 +258,38 @@ body {
   text-align: center;
 }
 
-/* Background style for the story container */
+/* CSS for the story container */
 .story-container {
-  /* background: url('/images/leaf paper.jpg');  */
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 50px;
-  /* color: #121111;  */
-  color:whitesmoke;
-  font-family: cursive;
+  padding: 20px; 
+  color: whitesmoke;
+  font-family: 'In-the-deep-dark-woods', sans-serif; 
+  
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 /* Additional styles for story text */
 .story-container p {
   font-size: 18px;
   line-height: 1.5;
+  text-align: justify; 
 }
 
 
-/* CSS for the start link */
-#start-link {
-  font-family: 'Creepster', sans-serif; 
-  font-size: 24px; 
-  text-decoration: none; 
-  color: #fff; 
-  transition: transform 0.3s ease;
-  margin-top: 20px; 
-}
+
 
 /* Hover effect */
 #start-link:hover {
   transform: scale(1.1); 
 }
 .transparent-input { 
-  background: none; /* Transparent background */
+  background: none; 
   border: none;
 } 
 
@@ -282,4 +299,12 @@ input {
   font-size: 24px; 
   /* border: 1px solid #383535;  */
   color:#ffffff;
+}
+
+#return-home-button{
+  transform: scale(4);
+  margin: 0;
+  position: absolute;
+  top: 80%;
+  left: 50%;
 }
