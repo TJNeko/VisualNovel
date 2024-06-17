@@ -239,34 +239,31 @@ body {
   text-align: center;
 }
 
-/* Background style for the story container */
+/* CSS for the story container */
 .story-container {
-  /* background: url('/images/leaf paper.jpg');  */
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 0; /* Remove or reduce padding */
-  color: #121111; 
-  font-family: cursive;
+  padding: 20px; /* Adjust padding as needed */
+  color: whitesmoke;
+  font-family: 'In-the-deep-dark-woods', sans-serif; /* Assuming this is your desired font */
+  
+  /* Center content vertically and horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure full viewport height */
 }
-
-
 
 /* Additional styles for story text */
 .story-container p {
   font-size: 18px;
   line-height: 1.5;
+  text-align: justify; /* Example of text alignment */
 }
 
 
-/* CSS for the start link */
-#start-link {
-  font-family: 'Creepster', sans-serif; 
-  font-size: 24px; 
-  text-decoration: none; 
-  color: #fff; 
-  transition: transform 0.3s ease;
-  margin-top: 20px; 
-}
+
 
 /* Hover effect */
 #start-link:hover {
