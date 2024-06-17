@@ -43,7 +43,6 @@
             const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
             window.history.replaceState({}, document.title, newURL);
         }
-
         // Call the function when the page loads
         window.addEventListener('load', hidePartialURL);
 
