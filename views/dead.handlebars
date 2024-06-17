@@ -6,4 +6,16 @@
   <h1 class="creepster" style="color:darkred">YOU ARE DEAD</h1>
   </div>
   </div>
+      <script>
+        // Function to disable the browser's back button
+        function disableBackButton() {
+            history.pushState(null, null, location.href);
+            window.onpopstate = function () {
+                history.go(1);
+            };
+        }
+
+        // Call the disableBackButton function when the page loads
+        window.addEventListener('load', disableBackButton);
+    </script>
 </body>

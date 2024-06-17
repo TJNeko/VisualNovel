@@ -42,4 +42,3 @@ function handleParagraphClick(event){
     let story = paragraph.textContent;
     let hasChoice = paragraph.getAttribute('data-choice');
 }
-

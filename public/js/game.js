@@ -79,5 +79,6 @@ nextButton?.addEventListener("click",function(){
   window.location.href = '/story/3';
 });
 
+
 // Initialize the game when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', initGame);
+//document.addEventListener('DOMContentLoaded', initGame);
