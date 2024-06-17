@@ -19,14 +19,3 @@ backButton?.addEventListener("click", () => {
     
     window.location.href = "/story/" + (parseInt(currentStoryId) - 1)
 })
-
-window.addEventListener('load', () => {
-    // Push the current state to the history stack
-    history.pushState(null, document.title, location.href);
-  
-    // Add an event listener for the popstate event
-    window.addEventListener('popstate', (event) => {
-      // Push the state again to the history stack when the user tries to go back
-      history.pushState(null, document.title, location.href);
-    });
-  });
