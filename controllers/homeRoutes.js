@@ -29,7 +29,7 @@ router.get("/api/story", async (req, res) => {
 
     const stories = storyData.map((story) => story.get({ plain: true }));
 
-    res.render("story", {
+    res.render("/story", {
       story: stories[2],
       logged_in: req.session.logged_in,
     });
