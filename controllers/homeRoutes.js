@@ -54,7 +54,7 @@ router.get("/story", async (req, res) => {
     const stories = storyData.map((s) => {
       return s?.get({ plain: true });
     });
-    res.render("intro", {
+    res.render("/intro", {
       stories: stories, //all stories
       logged_in: req.session.logged_in,
     });
