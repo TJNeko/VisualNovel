@@ -8,7 +8,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   color: #ffffff;
-  font-family:cursive
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 .no-button {
@@ -45,11 +45,6 @@ body {
 
 @keyframes type {
   from { width: 0; }
-}
-
-@font-face {
-  font-family: 'In-the-deep-dark-woods';
-  src: url('/fonts/In-the-deep-dark-woods.ttf') format('truetype'); 
 }
 
 @font-face {
@@ -145,7 +140,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   color: #ffffff;
-  font-family: 'In-the-deep-dark-woods', sans-serif; 
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 .no-button {
@@ -183,11 +178,11 @@ body {
 @keyframes type {
   from { width: 0; }
 }
-
+/* 
 @font-face {
   font-family: 'In-the-deep-dark-woods';
-  src: url('/fonts/In-the-deep-dark-woods.ttf') format('truetype'); 
-}
+  src: url('ger') format('truetype'); 
+} */
 
 @font-face {
   font-family: 'Creepy-Regular';
@@ -264,7 +259,7 @@ body {
   background-repeat: no-repeat;
   padding: 20px; 
   color: whitesmoke;
-  font-family: 'In-the-deep-dark-woods', sans-serif; 
+  font-family: 'cursive', sans-serif; 
   
  
   display: flex;
